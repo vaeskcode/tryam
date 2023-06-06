@@ -4,7 +4,7 @@ RUN apt install default-jdk -y
 RUN apt install maven git -y
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git &&\
     cd boxfuse-sample-java-war-hello/ &&\
-    mvn package &&\
+    mvn package
 RUN mkdir /usr/local/tomcat
 RUN wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75-deployer.tar.gz -O /tmp/tomcat.tar.gz &&\
     cd /tmp &&\
