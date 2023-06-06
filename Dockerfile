@@ -10,6 +10,6 @@ RUN wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-
     cd /tmp &&\
     tar xvfz tomcat.tar.gz &&\
     cp -Rv /tmp/apache-tomcat-9.0.75/* /usr/local/tomcat/ &&\
-    cp target/hello-1.0.war /usr/local/tomcat/webapps
+    cp boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps
 EXPOSE 8080
 CMD /usr/local/tomcat/bin/catalina.sh run
