@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 RUN apt update
 RUN apt install default-jdk -y
-RUN apt install maven git -y
+RUN apt install maven git wget -y
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git &&\
     cd boxfuse-sample-java-war-hello/ &&\
     mvn package
