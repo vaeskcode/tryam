@@ -5,9 +5,8 @@ services:
     maven:
         build:
             context: ./dockerfiles
-            dockerfile: maven.dockerfile
         volumes:
-            - mvn_volume:/boxfuse-sample-java-war-hello
+            - mvn_volume:/app
 
     tomcat:
         image: informex/alpine-tomcat:latest
@@ -20,3 +19,6 @@ services:
             
 volumes:
     mvn_volume:
+
+networks:
+    default:
