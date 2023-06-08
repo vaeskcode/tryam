@@ -17,4 +17,4 @@ services:
             - mvn_volume:/opt/tomcat/webapps
             
 volumes:
-    mvn_volume
+    mvn_volume:
