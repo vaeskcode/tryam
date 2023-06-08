@@ -1,0 +1,20 @@
+---
+version: "3.8"
+
+services:
+    maven:
+        build:
+            context: ./dockerfiles
+            dockerfile: maven.dockerfile
+        volumes:
+            - mvn_volume:/boxfuse-sample-java-war-hello
+
+    tomcat:
+        image: davidcaste/alpine-tomcat:jre7tomcat7
+        ports:
+            - "8080:8080"
+        volumes:
+            - mvn_volume:/opt/tomcat/webapps
+            
+volumes:
+    mvn_volume
