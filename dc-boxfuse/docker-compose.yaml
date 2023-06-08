@@ -10,7 +10,7 @@ services:
             - mvn_volume:/boxfuse-sample-java-war-hello
 
     tomcat:
-        image: davidcaste/alpine-tomcat:jre7tomcat7
+        image: informex/alpine-tomcat:latest
         ports:
             - "8080:8080"
         volumes:
