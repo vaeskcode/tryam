@@ -1,20 +1,4 @@
 ---
-- name: Ensure rsync package is present
-  hosts: all
-  become: true
-  
-  tasks:
-    - name: Install rsync
-      apt:
-        name: rsync
-        state: latest
-
-    - name: Check rsync is acitve
-      service:
-        name: rsync
-        state: started
-        enabled: true
-
 - name: Configuring the master node
   hosts: master
   become: true
@@ -51,6 +35,6 @@
 
     - name: Moving an artifact
       synchronize:
-        mode: pull
-        src: rsync://185.241.194.66/tmp/tryam/target/
+        src: /tmp/tryam/target/
         dest: /var/lib/tomcat9/webapps/
+      delegate_to: master
