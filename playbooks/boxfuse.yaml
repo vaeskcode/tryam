@@ -11,9 +11,9 @@
 
     - name: Check rsync is acitve
       service:
-      name: rsync
-      state: started
-      enabled: true
+        name: rsync
+        state: started
+        enabled: true
 
 - name: Configuring the master node
   hosts: master
