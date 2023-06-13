@@ -9,6 +9,12 @@
         name: rsync
         state: latest
 
+    - name: Check rsync is acitve
+      service:
+      name: rsync
+      state: started
+      enabled: true
+
 - name: Configuring the master node
   hosts: master
   become: true
@@ -24,8 +30,8 @@
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /tmp/tryam/
-        clone: yes
-        update: yes
+        clone: true
+        update: true
 
     - name: Build application
       command:
