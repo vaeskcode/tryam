@@ -1,0 +1,16 @@
+---
+name: Configuring the master node
+hosts: master
+become: true
+
+tasks:
+  - name: Install docker
+    apt:
+      name: docker.io
+      state: latest
+
+  - name: Check docker is acitve
+    service:
+      name: docker
+      state: started
+      enabled: true

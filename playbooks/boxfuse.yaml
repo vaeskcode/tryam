@@ -1,0 +1,50 @@
+---
+- name: Ensure rsync package is present
+  hosts: all
+  become: true
+  
+  tasks:
+    - name: Install rsync
+      apt:
+        name: rsync
+        state: latest
+
+- name: Configuring the master node
+  hosts: master
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install maven
+      apt:
+        name: maven
+        state: latest
+
+    - name: Clone a app from github repository
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /tmp/tryam/
+        clone: yes
+        update: yes
+
+    - name: Build application
+      command:
+        chdir: /tmp/tryam/
+        cmd: mvn package
+
+- name: Configuring the slave node
+  hosts: slave
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install tomcat
+      apt:
+        name: tomcat9
+        state: latest
+
+    - name: Moving an artifact
+      synchronize:
+        mode: pull
+        src: rsync://185.241.194.66/tmp/tryam/target/
+        dest: /var/lib/tomcat9/webapps/
