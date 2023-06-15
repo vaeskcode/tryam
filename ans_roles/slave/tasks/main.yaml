@@ -6,7 +6,7 @@
 
 - name: Moving an artifact
   synchronize:
-    src: {{ dest_local }}
-    dest: {{ dest_web }}
+    src: "{{ dest_local }}"
+    dest: "{{ dest_web }}"
   delegate_to: localhost
   notify: restart tomcat
