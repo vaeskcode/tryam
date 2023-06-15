@@ -1,0 +1,3 @@
+---
+dest_web: /var/lib/tomcat9/webapps/
+dest_local: /tmp/art

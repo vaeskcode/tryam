@@ -1,0 +1,11 @@
+---
+- name: install tomcat
+  apt:
+    name: tomcat9
+    state: present
+
+- name: Moving an artifact
+  synchronize:
+    src: {{ dest_local }}
+    dest: {{ dest_web }}
+  delegate_to: localhost

@@ -1,0 +1,24 @@
+---
+- name: install maven
+  apt:
+    name: maven
+    state: present
+
+- name: clone a repo
+  git:
+    repo: {{ repo_app }}
+    dest: {{ dest_folder }}
+    clone: true
+    update: true
+
+- name: Build application
+  command:
+    chdir: {{ repo_app }}
+    cmd: mvn package 
+
+- name: Moving an artifact
+  synchronize:
+    mode: pull
+    src: {{ dest_folder }}/target/
+    dest: {{ dest_local }}
+  delegate_to: localhost
