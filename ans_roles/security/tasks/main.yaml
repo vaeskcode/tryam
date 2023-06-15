@@ -1,0 +1,11 @@
+---
+- name: copy banner
+  copy:
+    src: banner
+    dest: "{{ dest_ssh }}"
+
+- name: edit config
+  lineinfile:
+    dest: "{{ dest_ssh }}/ssh_config"
+    line: 'Banner /etc/ssh/banner'
+  notify: restart sshd
