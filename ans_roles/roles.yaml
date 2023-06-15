@@ -1,0 +1,16 @@
+---
+- name: Configuring the master node
+  hosts: master
+  become: true
+
+  roles:
+    - common
+    - master
+
+- name: Configuring the slave node
+  hosts: slave
+  become: true
+
+  roles:
+    - common
+    - slave
