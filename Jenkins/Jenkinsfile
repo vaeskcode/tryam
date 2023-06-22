@@ -1,0 +1,25 @@
+pipeline {
+    agent {
+        docker {
+            image 'url to dockerhub'
+        }
+    }
+
+    stages {
+        stage ('Get app from repo') {
+            steps {
+                git 'https://github.com/vaeskcode/boxfuse-tryam.git'
+            }
+        }
+        stage ('Build app') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+        stage ('Deploy app') {
+            steps {
+                deploy adapters:
+            }
+        }
+    }
+}
