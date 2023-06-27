@@ -2,7 +2,7 @@ FROM openjdk:8u151-stretch
 
 # Install packages
 RUN apt-get update &&\
-    apt-get install apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common maven git -y
+    apt-get install ca-certificates curl maven git -y
 
 # Install docker 18.03
 RUN apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
