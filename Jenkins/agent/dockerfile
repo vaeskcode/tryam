@@ -1,6 +1,6 @@
 FROM openjdk:8u151-stretch
 
-# Install pacakges
+# Install packages
 RUN apt-get update &&\
     apt-get install apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common maven git -y
 
